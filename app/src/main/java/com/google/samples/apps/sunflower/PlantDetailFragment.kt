@@ -68,8 +68,6 @@ class PlantDetailFragment : Fragment() {
                 }
             }
 
-            galleryNav.setOnClickListener { navigateToGallery() }
-
             var isToolbarShown = false
 
             // scroll change listener begins at Y = 0 when image is fully collapsed
@@ -111,14 +109,6 @@ class PlantDetailFragment : Fragment() {
         setHasOptionsMenu(true)
 
         return binding.root
-    }
-
-    private fun navigateToGallery() {
-        plantDetailViewModel.plant.value?.let { plant ->
-            val direction =
-                PlantDetailFragmentDirections.actionPlantDetailFragmentToGalleryFragment(plant.name)
-            findNavController().navigate(direction)
-        }
     }
 
     // Helper function for calling a share functionality.
